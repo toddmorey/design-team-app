@@ -122,6 +122,11 @@ a.image-preview {
 		max-width: 200px;
 		border: 1px solid $lightgrey;
 	}
+	&.large {
+		img {
+			max-width: 100%;
+		}
+	}
 }
 .index-need-help {
 	ul {

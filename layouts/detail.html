@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 		    {% set item = find({ 'data.id' : up.id, type : 'update'  }).sort({ 'data.id': -1 }).first() %}
-	            <a href="{{item.data.url}}" class="image-preview">
+	            <a href="{{item.data.url}}" class="image-preview large">
 	                <img src="{{item.data.url}}" alt="{{ proj.project }}">
 	            </a>
 			    <p>
