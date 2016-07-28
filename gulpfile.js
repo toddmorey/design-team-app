@@ -47,8 +47,7 @@ var config = require('./config/netlify-config.js'),
 gulp.task('sass', function() {
     return gulp.src("scss/**/*.*")
         .pipe(sass({includePaths: [
-            'scss/**/',
-            'bower_components/susy/sass']
+            'scss/**/']
           , errLogToConsole: true}))
         .pipe(gulp.dest("build/css"))
         .pipe(browserSync.reload({stream:true}))
@@ -104,7 +103,6 @@ gulp.task('metalsmith-prod', function(callback) {
 gulp.task('browsersync', function () {
   browserSync.init({
     notify: true,
-    https: true,
     // tunnel: '',
     server: {
       baseDir: 'build'
