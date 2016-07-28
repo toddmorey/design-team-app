@@ -21,7 +21,7 @@
     "algoliasearch": "^3.13.0",
     "babel-core": "*",
     "babel-loader": "*",
-    "browser-sync": "^2.9.6",
+    "browser-sync": "^2.13.0",
     "contentful-metalsmith": "^0.1.0",
     "debug": "^2.2.0",
     "filepicker": "^0.2.0",
