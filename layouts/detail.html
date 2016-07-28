@@ -1,0 +1,12 @@
+{% include "layouts/includes/header.html" %}
+
+<h1>{{ data.project }}</h1>
+
+<!-- Only most recent update -->
+{% for up in data.updates %}
+    {% set item = find({ 'data.id' : up.id, type : 'update'  }).sort({ 'data.id': -1 }).first() %}
+    <img width="200px" src="{{ item.data.url }}" />
+    {{ item.data.update }}
+{% endfor %}
+
+{% include "layouts/includes/footer.html" %}

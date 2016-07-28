@@ -1,0 +1,62 @@
+{% include "layouts/includes/header.html" %}
+
+<h1>Projects Ready For Feeback</h1>
+
+<!-- Projects in progress -->
+{% set list = find({ 'data.status' : {"$elemMatch": {status: "Needs Feedback"} } }).all() %}
+
+<ul>
+{% for item in list %}
+    <li><a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a></li>
+{% endfor %}
+</ul>
+
+<hr/>
+
+<h1>Projects In Progress</h1>
+
+<!-- Projects in progress -->
+{% set list = find({ 'data.status' : {"$elemMatch": {status: "Design In Progress"} } }).all() %}
+
+<ul>
+{% for item in list %}
+    <li><a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a></li>
+{% endfor %}
+</ul>
+
+<hr/>
+
+
+<h1>Projects Waiting On Somebody</h1>
+
+<!-- Projects waiting on someone... -->
+{% set list = find({ 'data.status' : {"$elemMatch": {status: "Waiting on..."} } }).all() %}
+
+<ul>
+{% for item in list %}
+    <li>
+        <a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a>
+        <ul>
+            {% for need in item.data.needs %}
+                <li>{{ need.name }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+{% endfor %}
+</ul>
+
+<hr/>
+
+
+<h1>Projects Not Started Just Yet</h1>
+
+<!-- Projects not started -->
+{% set list = find({ 'data.status' : {"$elemMatch": {status: "Not Started Yet"} } }).all() %}
+
+<ul>
+{% for item in list %}
+    <li><a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a></li>
+{% endfor %}
+</ul>
+
+{% include "layouts/includes/footer.html" %}

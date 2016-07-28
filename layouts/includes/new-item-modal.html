@@ -1,0 +1,113 @@
+<!-- Add New Item modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="newItemModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist" id="new-item-tabs">
+                    <li role="presentation" class="tabs active"><a href="#provide" aria-controls="provide" role="tab" data-toggle="tab">Provide It</a></li>
+                    <li role="presentation" class="tabs"><a href="#request" aria-controls="request" role="tab" data-toggle="tab">Request It</a></li>
+                    <li class="close-modal" id="close-newItems">
+                        <i id="close-right-details-panel">x</i>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="provide">
+                        <div class="new-item-description">
+                            You are such a team player! What do you want to add?
+                        </div>
+                        <div class="provide-wrapper">
+                            <div class="provide-btn" id="provide-text">
+                                <i class="icon-speech"></i>
+                                <span>Some Text</span>
+                            </div>
+                            <div class="provide-btn" id="provide-image">
+                                <i class="icon-camera"></i>
+                                <span>An Image</span>
+                            </div>
+                            <div class="provide-btn" id="provide-file">
+                                <i class="icon-paper-clip"></i>
+                                <span>A File</span>
+                            </div>
+                        </div>
+                        <div class="add-item-hidden" id="provide-text-input">
+                            <form class="new-project-form">
+                                <div class="form-group">
+                                    <label for="projectName">Name This Item</label>
+                                    <input type="text" class="form-control" id="itemName" name="itemName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="projectNotes">Add Some Text</label>
+                                    <textarea class="form-control" rows="3" id="ProvideItemText" name="ProvideItemText"></textarea>
+                                </div>
+                                <button type="button" class="btn main-btn">Add Item To This Project</button>
+                            </form>
+                        </div>
+                        <div class="add-item-hidden" id="provide-image-input">
+                            <form class="new-project-form">
+                                <div class="form-group">
+                                    <label for="projectName">Name This Item</label>
+                                    <input type="text" class="form-control" id="itemName" name="itemName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="projectName">Select an Image</label>
+                                    <div>
+                                        <input type="text" id="provideImageURL" name="provideImageURL" class="form-control select-file-input" placeholder="Select a file">
+                                        <button type="button" class="select-file-btn" onclick="{doPickFile}">Choose a file</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn main-btn">Add Image To This Project</button>
+                            </form>
+                        </div>
+                        <div class="add-item-hidden" id="provide-file-input">
+                            <form class="new-project-form">
+                                <div class="form-group">
+                                    <label for="projectName">Name This Item</label>
+                                    <input type="text" class="form-control" id="itemName" name="itemName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="projectName">Select a File</label>
+                                    <div>
+                                        <input type="text" id="provideFileURL" name="provideFileURL" class="form-control select-file-input" placeholder="Select a file">
+                                        <button type="button" class="select-file-btn" onclick="{doPickFile}">Choose a file</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn main-btn">Add File To This Project</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="request">
+                        <div class="new-item-description">
+                            What amazingness do you want for this project?
+                        </div>
+                        <form class="new-project-form">
+                            <div class="form-group">
+                                <label for="projectName">Name This Item</label>
+                                <input type="text" class="form-control" id="itemName" name="itemName">
+                            </div>
+                            <div class="form-group">
+                                <label for="projectNotes">Describe What You're Looking For</label>
+                                <textarea class="form-control" rows="3" id="RequestItemText" name="RequestItemText"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectName">From Who?</label>
+                                <select class="form-control">
+                                    <option>@todd</option>
+                                    <option>@wes</option>
+                                    <option>@jimmy</option>
+                                    <option>@joe</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn main-btn">Send This Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

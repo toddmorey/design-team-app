@@ -1,0 +1,28 @@
+{% include "layouts/includes/header.html" %}
+
+<h1>Activity this week</h1>
+
+<p>Here are a few of the projects that have been updated this week</p>
+
+<!-- This week's activity -->
+{% set list = find({ 'data.date' : {'$gt': '2016-07-26' } }).all() %}
+
+{% for item in list %}
+<div class="media">
+  <div class="media-left">
+    <a href="{{item.data.url}}">
+      <img class="media-object" src="{{item.data.url}}" width="50px" alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">
+        {% for proj in item.data.project %}
+            {{ proj.project }}
+        {% endfor %} 
+    </h4>
+    <strong>{{item.data.date}}</strong>: {{item.data.update}}
+  </div>
+</div>
+{% endfor %}
+
+{% include "layouts/includes/footer.html" %}

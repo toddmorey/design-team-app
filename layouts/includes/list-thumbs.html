@@ -1,0 +1,36 @@
+        {% for item in list %}
+            <li class="portfolio-item">
+                <div class="portfolio-list-inner">
+                    <a href="/{{ item.path }}">
+                        {% if item.cover %}
+                            <img class="img-responsive" src="http://res.cloudinary.com/openstack/image/fetch/f_jpg,w_300,h_400,c_fill,g_north/http://ambitious.netlify.com/images/{{item.cover}}" alt="{{ item.title }}">
+                        {% else %}
+                            <div class="no-photo">                                
+                                <div class="inner">
+                                    {% set shortTitle = item.title.substring(0, 3) %}
+                                    {{ shortTitle }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </a>
+                    <h3>
+                        <a href="/{{ item.path }}">{{ item.title }}</a>
+                    </h3>
+                    <div class="portfolio-item-actions">
+                        {% set list = find({ 'parent' : item.title }).all() %}
+                            {% if list.length > 0 %}
+                                <a href="/{{ item.path }}" class="list-subprojects" data-toggle="tooltip" data-placement="top" title="This project has {{ list.length }} subprojects">
+                                    <span>{{ list.length }}</span>
+                                </a>
+                            {% else %}
+                                <a href="/{{ item.path }}" class="list-subprojects none" data-toggle="tooltip" data-placement="top" title="This project has no subprojects"></a>
+                            {% endif %}
+                        <a href="/{{ item.path }}" class="list-be-follower" data-toggle="tooltip" data-placement="top" title="Follow this project"></a>
+                        <!-- UI to show follower count
+                        <a href="/{{ item.path }}" class="list-followers" data-toggle="tooltip" data-placement="top" title="Follow this project">
+                            <span>6</span>
+                        </a> -->
+                    </div>
+                </div>
+            </li>
+        {% endfor %}

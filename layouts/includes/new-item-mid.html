@@ -1,0 +1,66 @@
+        <div class="new-item-wrapper">
+            <div class="add-item-mid">
+                <i class="icon-plus"></i>
+            </div>
+            <div class="new-item-section">
+                <div>
+                    <form>
+                        <input type="text" class="new-item-input" placeholder="Name This Item" name="itemName">
+                    </form>
+                </div>
+                <div class="section-content">
+                    <div role="tabpanel" class="tab-pane active provide">
+                        <div class="new-item-description">
+                            You are such a team player! What do you want to add?
+                        </div>
+                        <div class="provide-wrapper">
+                            <div class="provide-btn provide-text">
+                                <i class="icon-speech"></i>
+                                <span>Some Text</span>
+                            </div>
+                            <div class="provide-btn provide-image">
+                                <i class="icon-camera"></i>
+                                <span>An Image</span>
+                            </div>
+                            <div class="provide-btn provide-file">
+                                <i class="icon-paper-clip"></i>
+                                <span>A File</span>
+                            </div>
+                        </div>
+                        <div class="add-item-hidden provide-text-input">
+                            <form class="new-project-form">
+                                <div class="form-group">
+                                    <label for="projectNotes">Add Some Text</label>
+                                    <textarea class="form-control ProvideItemText" rows="3" name="ProvideItemText"></textarea>
+                                </div>
+                                <button type="button" class="btn main-btn">Add Item To This Project</button>
+                            </form>
+                        </div>
+                        <div class="add-item-hidden provide-image-input">
+                            <form class="new-project-form">
+                                <div class="form-group">
+                                    <label for="projectName">Select an Image</label>
+                                    <div>
+                                        <input type="text" name="provideImageURL" class="form-control select-file-input provideImageURL" placeholder="Select a file">
+                                        <button type="button" class="select-file-btn" onclick="{doPickFile}">Choose a file</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn main-btn">Add Image To This Project</button>
+                            </form>
+                        </div>
+                        <div class="add-item-hidden provide-file-input">
+                            <form class="new-project-form">
+                                <div class="form-group">
+                                    <label for="projectName">Select a File</label>
+                                    <div>
+                                        <input type="text" name="provideFileURL" class="form-control select-file-input provideFileURL" placeholder="Select a file">
+                                        <button type="button" class="select-file-btn" onclick="{doPickFile}">Choose a file</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn main-btn">Add File To This Project</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

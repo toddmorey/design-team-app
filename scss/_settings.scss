@@ -1,0 +1,39 @@
+/* Makes border-box properties */
+@include border-box-sizing;
+
+
+/* Makes border-box properties */
+@include border-box-sizing;
+
+/* Site-side colors */
+$body: #F4F7FB;
+$red: #AF030A;
+$yellow: #F1980C;
+$blue: #0967E6;
+$bluehover: #063093;
+$lightgrey: #e5e5e5;
+$darkgrey: #39444C;
+
+/* More mixins */
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .no-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

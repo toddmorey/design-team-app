@@ -1,0 +1,13 @@
+# osx noise
+.DS_Store
+
+node_modules/*
+build/*
+config/*
+json/*
+
+bower_components/*
+
+content/css/combined.css
+content/js/bundle.js
+

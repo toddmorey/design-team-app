@@ -1,0 +1,67 @@
+{% include "layouts/includes/header.html" %}
+
+{{ contents | safe }}
+
+<h1>Activity this week</h1>
+
+<p>Here are a few of the projects that have been updated this week</p>
+
+<!-- This week's activity -->
+{% set list = find({ 'data.date' : {'$gt': '2016-07-26' } }).all() %}
+
+{% for item in list %}
+<div class="media">
+  <div class="media-left">
+    <a href="{{item.data.url}}">
+      <img class="media-object" src="{{item.data.url}}" width="50px" alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">
+        {% for proj in item.data.project %}
+            <a href="/projects/{{ proj.id }}">{{ proj.project }}</a>
+        {% endfor %} 
+    </h4>
+    <strong>{{item.data.date}}</strong>: {{item.data.update}}
+  </div>
+</div>
+{% endfor %}
+
+<hr/>
+
+
+<h1>Projects Where We Need Some Help</h1>
+
+
+{% set list = find({ 'data.status' : {"$elemMatch": {status: "Waiting on..."} } }).all() %}
+
+<ul>
+{% for item in list %}
+    <li>
+        <a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a>
+            {% for need in item.data.needs %}
+                <div>We're waiting on: <strong>{{ need.name }}</strong></div>
+            {% endfor %}
+    </li>
+{% endfor %}
+</ul>
+
+<hr/>
+
+<h1>Projects Ready For Feeback</h1>
+
+<!-- Projects in progress -->
+{% set list = find({ 'data.status' : {"$elemMatch": {status: "Needs Feedback"} } }).all() %}
+
+<ul>
+{% for item in list %}
+    <li><a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a></li>
+{% endfor %}
+</ul>
+
+<br/><br/>
+
+<a href="/projects">More Projects</a>
+
+
+{% include "layouts/includes/footer.html" %}

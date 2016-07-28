@@ -1,0 +1,23 @@
+            <!-- Page Header -->
+            <div class="row">
+                <div class="col-sm-10">
+                    <div class="breadcrumbs">
+                        {% set list = find({ 'title' : parent }).all() %}
+                            <a href="/">All Projects</a>
+                            {% if list.length == 1 %}
+                                {% for item in list %}
+                                    <a href="/">All Projects</a>
+                                    <a href="/{{ item.path }}">{{ item.title }}</a>
+                                {% endfor %}
+                            {% endif %}
+                        <div class="current-page">{{ title }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="page-header">
+                        {{ title }}
+                    </h1>
+                </div>
+            </div>
