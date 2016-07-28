@@ -38,10 +38,10 @@
     <div class="container">
         <div class="right">
             <ul class="page-nav">
-                <li>
+                <li {% if layout == "index.html" %} class="active" {% endif %} >
                     <a href="/">The Latest</a>
                 </li>
-                <li>
+                <li {% if layout == "projects.html" %} class="active" {% endif %} >
                     <a href="/projects">All Projects</a>
                 </li>
             </ul>
