@@ -1,62 +1,134 @@
 {% include "layouts/includes/header.html" %}
 
-<h1>Projects Ready For Feeback</h1>
-
-<!-- Projects in progress -->
-{% set list = find({ 'data.status' : {"$elemMatch": {status: "Needs Feedback"} } }).all() %}
-
-<ul>
-{% for item in list %}
-    <li><a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a></li>
-{% endfor %}
-</ul>
-
-<hr/>
-
-<h1>Projects In Progress</h1>
-
-<!-- Projects in progress -->
-{% set list = find({ 'data.status' : {"$elemMatch": {status: "Design In Progress"} } }).all() %}
-
-<ul>
-{% for item in list %}
-    <li><a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a></li>
-{% endfor %}
-</ul>
-
-<hr/>
-
-
-<h1>Projects Waiting On Somebody</h1>
-
-<!-- Projects waiting on someone... -->
-{% set list = find({ 'data.status' : {"$elemMatch": {status: "Waiting on..."} } }).all() %}
-
-<ul>
-{% for item in list %}
-    <li>
-        <a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a>
-        <ul>
-            {% for need in item.data.needs %}
-                <li>{{ need.name }}</li>
-            {% endfor %}
+<div class="row">
+    <div class="col-sm-12 index-intro">
+        <h1>All Projects</h1>
+        <ul class="page-nav">
+            <li><a href="#feedback">Feedback</a></li>
+          <li><a href="#in-progress">In Progress</a></li>
+          <li><a href="#need-help">Need Help</a></li>
+          <li><a href="#not-started">Not Started</a></li>
         </ul>
-    </li>
-{% endfor %}
-</ul>
+    </div>
+</div>
 
-<hr/>
+<div id="feedback">
+    <div class="row">
+        <div class="col-sm-12">
+          <h2>Projects Ready For Feeback</h2>  
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 index-feedback">
+            <!-- Projects in progress -->
+            {% set list = find({ 'data.status' : {"$elemMatch": {status: "Needs Feedback"} } }).all() %}
+            
+            <div class="row">
+                <ul>
+                {% for item in list %}
+                    <li>
+                        <div class="col-sm-9 col-xs-7">
+                            <h4 class="project-title">
+                                <a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a>
+                            </h4>
+                        </div>
+                        <div class="col-sm-3 col-xs-5 view-column">
+                            <a href="/projects/{{ item.data.id }}/" class="view-btn">View Project <i class="icon-arrow-right"></i></a>
+                        </div>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div id="in-progress">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Projects In Progress</h2>  
+        </div>
+    </div>
 
-<h1>Projects Not Started Just Yet</h1>
+    <div class="row">
+        <div class="col-sm-12 index-feedback">
+            <!-- Projects in progress -->
+            {% set list = find({ 'data.status' : {"$elemMatch": {status: "Design In Progress"} } }).all() %}
+            
+            <div class="row">
+                <ul>
+                {% for item in list %}
+                    <li>
+                        <div class="col-sm-9 col-xs-7">
+                            <h4 class="project-title">
+                                <a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a>
+                            </h4>
+                        </div>
+                        <div class="col-sm-3 col-xs-5 view-column">
+                            <a href="/projects/{{ item.data.id }}/" class="view-btn">View Project <i class="icon-arrow-right"></i></a>
+                        </div>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- Projects not started -->
-{% set list = find({ 'data.status' : {"$elemMatch": {status: "Not Started Yet"} } }).all() %}
+<div id="need-help">
+    <h2>Projects Waiting On Somebody</h2>
 
-<ul>
-{% for item in list %}
-    <li><a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a></li>
-{% endfor %}
-</ul>
+    <!-- Projects waiting on someone... -->
+    {% set list = find({ 'data.status' : {"$elemMatch": {status: "Waiting on..."} } }).all() %}
+        <div class="row">
+          <div class="col-sm-12 index-need-help">
+            <ul>
+            {% for item in list %}
+                <li>
+                    <h4 class="project-title">
+                        <a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a>
+                    </h4>
+                    <div class="waiting-for">What we're patiently waiting on...</div>
+                    <ul class="waiting-list">
+                        {% for need in item.data.needs %}
+                            <li class="waiting-text">
+                                {{ need.name }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
+</div>
+
+<div id="not-started">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Projects Not Started Just Yet</h2>  
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 index-feedback">
+            <!-- Projects in progress -->
+            {% set list = find({ 'data.status' : {"$elemMatch": {status: "Not Started Yet"} } }).all() %}
+            
+            <div class="row">
+                <ul>
+                {% for item in list %}
+                    <li>
+                        <div class="col-sm-12">
+                            <h4 class="project-title">
+                                <a href="/projects/{{ item.data.id }}/">{{item.data.project}}</a>
+                            </h4>
+                        </div>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% include "layouts/includes/footer.html" %}

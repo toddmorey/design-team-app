@@ -1,12 +1,28 @@
 {% include "layouts/includes/header.html" %}
-
-<h1>{{ data.project }}</h1>
+<div class="row">
+	<div class="col-sm-12">
+		<h1>The Project Details</h1>	
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<h2>{{ data.project }}</h2>	
+	</div>
+</div>
 
 <!-- Only most recent update -->
 {% for up in data.updates %}
-    {% set item = find({ 'data.id' : up.id, type : 'update'  }).sort({ 'data.id': -1 }).first() %}
-    <img width="200px" src="{{ item.data.url }}" />
-    {{ item.data.update }}
+	<div class="row">
+		<div class="col-sm-12">
+		    {% set item = find({ 'data.id' : up.id, type : 'update'  }).sort({ 'data.id': -1 }).first() %}
+	            <a href="{{item.data.url}}" class="image-preview">
+	                <img src="{{item.data.url}}" alt="{{ proj.project }}">
+	            </a>
+			    <p>
+			    	{{ item.data.update }}
+			    </p>
+		</div>
+	</div>
 {% endfor %}
 
 {% include "layouts/includes/footer.html" %}

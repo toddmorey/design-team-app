@@ -1,10 +1,3 @@
-/* Makes border-box properties */
-@include border-box-sizing;
-
-
-/* Makes border-box properties */
-@include border-box-sizing;
-
 /* Site-side colors */
 $body: #F4F7FB;
 $red: #AF030A;
@@ -12,6 +5,7 @@ $yellow: #F1980C;
 $blue: #0967E6;
 $bluehover: #063093;
 $lightgrey: #e5e5e5;
+$lightgreytext: #aaaaaa;
 $darkgrey: #39444C;
 
 /* More mixins */
