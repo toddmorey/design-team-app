@@ -64,6 +64,14 @@ ul.page-nav {
 		&:last-child {
 			border-right: none;
 		}
+		&.active {
+			a {
+				color: $lightgreytext;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
 		a {
 			color: $blue;
 		}
