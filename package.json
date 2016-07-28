@@ -49,6 +49,7 @@
     "metalsmith-permalinks": "^0.4.1",
     "netlify": "^1.0.0",
     "nunjucks-date-filter": "^0.1.1",
+    "requestify": "^0.1.17",
     "riot": "*",
     "riotcontrol": "*",
     "riotjs-loader": "*",
