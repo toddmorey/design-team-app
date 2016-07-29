@@ -106,13 +106,21 @@ a.view-btn {
 	padding: 3px 15px;
 	border-radius: 4px;
 	display: inline-block;
+	white-space: nowrap;
+	font-size: 14px;
 	&:hover, &:focus {
 		text-decoration: none;
 		background: $bluehover;
+		padding: 3px 10px;
 	}
 	i {
 		font-size: 0.8em;
 		margin-left: 5px;
+	}
+}
+@media (max-width: 767px) {
+	a.view-btn {
+		font-size: 12px;
 	}
 }
 a.image-preview {
