@@ -176,7 +176,7 @@ a.image-preview {
 .view-column {
 	text-align: right;
 }
-#return-to-top {
+#return-to-top, #return-to-top:focus {
     position: fixed;
     bottom: 20px;
     right: 20px;
